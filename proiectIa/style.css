@@ -37,6 +37,7 @@ body{
 /****    LEFT SIDE    ****/
 .left #functions{
     display: inline;
+    position: relative;
 }
 
 .left h1{
@@ -47,8 +48,8 @@ body{
     font-family: "Courier New", Courier, monospace;
     color:rgb(80, 80, 80);
     margin-bottom: 5px;
-    animation-name: example;
-    animation-duration: 4s;
+    animation: example 5s;
+    animation-iteration-count: 2;
     width: 100%;
 }
 
@@ -63,8 +64,8 @@ body{
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     margin-top:0px;
     letter-spacing: 2px;
-    animation-name: drop;
-    animation-duration: 5s;
+    animation: drop 5s;
+    animation-iteration-count: 2;
 }
 
 @keyframes drop {
@@ -73,7 +74,9 @@ body{
     100% {color:rgb(80, 80, 80); ;}
   }
 
-.left button{
+  
+
+.left #function1{
     background-color: rgb(153, 153, 153);
     padding: 20px;
     font-size: 18px;
@@ -86,6 +89,58 @@ body{
     background-color:rgb(128, 162, 224);
     cursor: pointer;
 }
+
+.dropbtn {
+    background-color: rgb(60, 81, 173);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0px;
+    margin-right: 180px;
+
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 105px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+    background-color: rgb(33, 13, 82);
+    color: white;
+  }
+  
+  .dropdown-content option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: rgb(33, 13, 82);
+    color: white;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #000000;}
+
+  #add_function{
+      background-color: rgb(188, 217, 255);
+      position: absolute;
+      top:2px;
+      left:180px;
+      color: black;
+      font-size: 18px;
+      box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+  }
 
 .left #add_file{
     font-size: 30px;
