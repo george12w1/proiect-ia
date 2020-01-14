@@ -11,7 +11,9 @@ document.getElementById("addImage").addEventListener('change', function () {
         let file = this.files[0];
         if(file.name.split('.')[1]=="xml"){
         fr = new FileReader();
-        fr.onload = function(){ window.localStorage.setItem(file.name+"("+uuidv4()+")", fr.result);};
+        fr.onload = function(){ 
+          renderFileComponents();
+          window.localStorage.setItem(file.name+"("+uuidv4()+")", fr.result);};
         fr.readAsText(file);
         renderFileComponents();
         }else console.log("invalid format");

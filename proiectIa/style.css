@@ -1,0 +1,115 @@
+body{
+    background-image: url(./images/background_blue.png);
+    background-size: cover;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+/****    LEFT SIDE    ****/
+
+.left h1{
+    border-left: 4px solid rgb(128, 162, 224);
+    border-right: 4px solid rgb(128, 162, 224);
+    letter-spacing: 4px;
+    font-size: 50px;
+    font-family: "Courier New", Courier, monospace;
+    color:rgb(80, 80, 80);
+    margin-bottom: 5px;
+}
+
+.left h3 {
+    color:rgb(133, 133, 133);
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-top:0px;
+    letter-spacing: 2px;
+}
+
+.left button{
+    background-color: rgb(153, 153, 153);
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    color:white;
+    margin: 20px;
+}
+
+.left input{
+    font-size: 18px;
+    margin: 20px;
+    padding: 20px;
+    padding-bottom: 5px;
+    border:none;
+    border-bottom: 2px solid gray;
+}
+
+
+/****    RIGHT SIDE    ****/
+
+.right #files{
+    font-size: 20px;
+    padding: 20px;
+    border: 2px solid rgb(68, 106, 175);
+}
+
+.right #files div{
+    border: 2px solid gray;
+}
+
+.right button{
+    background-color: rgb(153, 153, 153);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    color:white;
+    margin: 20px;
+}
+
+.right #add_file{
+    font-size: 30px;
+    margin:10px;
+    padding: 10px 110px;
+    border: 2px solid  rgb(110, 119, 136);
+    color: rgb(68, 106, 175);
+}
+
+.right #results{
+    font-size: 20px;
+    padding: 20px;
+    border: 2px solid rgb(68, 106, 175);
+}
+
+.right #results div{
+    border: 2px solid gray;
+    padding: 20px;
+
+}
+
