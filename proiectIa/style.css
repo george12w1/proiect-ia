@@ -47,14 +47,31 @@ body{
     font-family: "Courier New", Courier, monospace;
     color:rgb(80, 80, 80);
     margin-bottom: 5px;
+    animation-name: example;
+    animation-duration: 4s;
+    width: 100%;
 }
+
+@keyframes example {
+    0%   {width: 0px; color: white;}
+    40%  {color:white;}
+    100% {width: 100%;color:rgb(80, 80, 80); ;}
+  }
 
 .left h3 {
     color:rgb(133, 133, 133);
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     margin-top:0px;
     letter-spacing: 2px;
+    animation-name: drop;
+    animation-duration: 5s;
 }
+
+@keyframes drop {
+    0%   {color: white;}
+    40%  {color:white;}
+    100% {color:rgb(80, 80, 80); ;}
+  }
 
 .left button{
     background-color: rgb(153, 153, 153);
@@ -66,7 +83,6 @@ body{
 }
 
 .left button:hover{
-    /* border: 0.5px solid rgb(80, 80, 80); */
     background-color:rgb(128, 162, 224);
     cursor: pointer;
 }
@@ -76,6 +92,12 @@ body{
     padding: 10px 110px;
     border: 2px solid  rgb(110, 119, 136);
     color: rgb(68, 106, 175);
+}
+
+.left #add_file:hover{
+    background-color: rgb(80, 80, 80);
+    color: white;
+    border: 2px solid  rgb(68, 106, 175);
 }
 
 .left input{
@@ -107,6 +129,11 @@ body{
     border: none;
     color:white;
     margin: 20px;
+}
+
+.right button:hover{
+    background-color:rgb(128, 162, 224);
+    cursor: pointer;
 }
 
 .right #results{
