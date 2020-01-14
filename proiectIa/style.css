@@ -35,6 +35,9 @@ body{
 
 
 /****    LEFT SIDE    ****/
+.left #functions{
+    display: inline;
+}
 
 .left h1{
     border-left: 4px solid rgb(128, 162, 224);
@@ -59,7 +62,20 @@ body{
     font-size: 18px;
     border: none;
     color:white;
-    margin: 20px;
+    margin: 10px 100px 40px;
+}
+
+.left button:hover{
+    /* border: 0.5px solid rgb(80, 80, 80); */
+    background-color:rgb(128, 162, 224);
+    cursor: pointer;
+}
+
+.left #add_file{
+    font-size: 30px;
+    padding: 10px 110px;
+    border: 2px solid  rgb(110, 119, 136);
+    color: rgb(68, 106, 175);
 }
 
 .left input{
@@ -91,14 +107,6 @@ body{
     border: none;
     color:white;
     margin: 20px;
-}
-
-.right #add_file{
-    font-size: 30px;
-    margin:10px;
-    padding: 10px 110px;
-    border: 2px solid  rgb(110, 119, 136);
-    color: rgb(68, 106, 175);
 }
 
 .right #results{
