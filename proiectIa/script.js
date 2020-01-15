@@ -9,8 +9,8 @@ function addEventForAddFunctions() {
         let where = document.getElementById("functions");
         if (selected == "default") return;
         else if (selected == "f1") where.append(renderContainsTag());
-        else if (selected == "f2") where.append(renderWordAfterElement());
-        else if (selected == "f3") where.append(renderWordBeforeElement());
+        else if (selected == "f2") where.append(renderWordBeforeElement());
+        else if (selected == "f3") where.append(renderWordAfterElement());
         else if (selected == "f4") where.append(renderHasDepth());
         else if (selected == "f5") where.append(renderNumberOfElements());
     
@@ -35,14 +35,16 @@ function renderNumberOfElements(){
 function renderWordAfterElement(){
     let uniqueName=uuidv4();
     let divFunction=document.createElement("div");divFunction.setAttribute("id","function");
-    let label = document.createElement("label");label.innerText="are cuvantul inaintea elementului";
+    let label = document.createElement("label");label.innerText="n elemente au o anumita valoarea ";
     let input = document.createElement("input");input.setAttribute("type","checkbox");input.setAttribute("checked","checked");input.setAttribute("value","f3");input.setAttribute("name",uniqueName);
     label.appendChild(input);
     divFunction.appendChild(label);
-    let input2 = document.createElement("input");input2.setAttribute("type","text");input2.setAttribute("placeholder","cuvant");input2.setAttribute("name",uniqueName);
+    let input2 = document.createElement("input");input2.setAttribute("type","text");input2.setAttribute("placeholder","nr elemente(n)");input2.setAttribute("name",uniqueName);
     let input3 = document.createElement("input");input3.setAttribute("type","text");input3.setAttribute("placeholder","nume element");input3.setAttribute("name",uniqueName);
+    let input4 = document.createElement("input");input4.setAttribute("type","text");input4.setAttribute("placeholder","nume valoare");input4.setAttribute("name",uniqueName);
     divFunction.appendChild(input2);
     divFunction.appendChild(input3);
+    divFunction.appendChild(input4);
     return divFunction;
 
 
@@ -50,12 +52,12 @@ function renderWordAfterElement(){
 function renderWordBeforeElement(){
     let uniqueName=uuidv4();
     let divFunction=document.createElement("div");divFunction.setAttribute("id","function");
-    let label = document.createElement("label");label.innerText="are cuvantul dupa element";
+    let label = document.createElement("label");label.innerText="fiecare element contine elementul";
     let input = document.createElement("input");input.setAttribute("type","checkbox");input.setAttribute("checked","checked");input.setAttribute("value","f2");input.setAttribute("name",uniqueName);
     label.appendChild(input);
     divFunction.appendChild(label);
-    let input2 = document.createElement("input");input2.setAttribute("type","text");input2.setAttribute("placeholder","cuvant");input2.setAttribute("name",uniqueName);
-    let input3 = document.createElement("input");input3.setAttribute("type","text");input3.setAttribute("placeholder","nume element");input3.setAttribute("name",uniqueName);
+    let input2 = document.createElement("input");input2.setAttribute("type","text");input2.setAttribute("placeholder","element");input2.setAttribute("name",uniqueName);
+    let input3 = document.createElement("input");input3.setAttribute("type","text");input3.setAttribute("placeholder","element continut");input3.setAttribute("name",uniqueName);
     divFunction.appendChild(input2);
     divFunction.appendChild(input3);
     return divFunction;
@@ -113,9 +115,9 @@ document.getElementById("search").addEventListener("click",function(){
     }
     else if(afunction=="f2"){
         let lr=[];
-        console.log(wordAfterElement(valueInputs[0].value,valueInputs[1].value).length);
-        for(let i=0;i<wordAfterElement(valueInputs[0].value,valueInputs[1].value).length;i++)
-        lr.push(wordAfterElement(valueInputs[0].value,valueInputs[1].value)[i]);
+        //console.log(elementHasElement(valueInputs[0].value,valueInputs[1].value).length);
+        for(let i=0;i<elementHasElement(valueInputs[0].value,valueInputs[1].value).length;i++)
+        lr.push(elementHasElement(valueInputs[0].value,valueInputs[1].value)[i]);
         if(wn){
         wn=false;
         results=lr;
@@ -124,9 +126,9 @@ document.getElementById("search").addEventListener("click",function(){
     }
     else if(afunction=="f3"){
         let lr=[];
-        console.log(wordBeforeElement(valueInputs[0].value,valueInputs[1].value).length);
-        for(let i=0;i<wordBeforeElement(valueInputs[0].value,valueInputs[1].value).length;i++)
-        lr.push(wordBeforeElement(valueInputs[0].value,valueInputs[1].value)[i]);
+        //console.log(wordBeforeElement(valueInputs[0].value,valueInputs[1].value).length);
+        for(let i=0;i<nElemsHasValue(valueInputs[0].value,valueInputs[1].value,valueInputs[2].value).length;i++)
+        lr.push(nElemsHasValue(valueInputs[0].value,valueInputs[1].value,valueInputs[2].value)[i]);
         if(wn){
         wn=false;
         results=lr;
@@ -135,7 +137,7 @@ document.getElementById("search").addEventListener("click",function(){
     }  
     else if(afunction=="f4"){
         let lr=[];
-        console.log(HasDepth(valueInputs[0].value).length);
+        //console.log(HasDepth(valueInputs[0].value).length);
         for(let i=0;i<HasDepth(valueInputs[0].value).length;i++)
         lr.push(HasDepth(valueInputs[0].value)[i]);
         if(wn){
@@ -145,7 +147,7 @@ document.getElementById("search").addEventListener("click",function(){
         results=_.intersection(lr,results);
     }  else if(afunction=="f5"){
         let lr=[];
-        console.log(NumberOfElements(valueInputs[0].value,valueInputs[1].value).length);
+        //console.log(NumberOfElements(valueInputs[0].value,valueInputs[1].value).length);
         for(let i=0;i<NumberOfElements(valueInputs[0].value,valueInputs[1].value).length;i++)
         lr.push(NumberOfElements(valueInputs[0].value,valueInputs[1].value)[i]);
         if(wn){
@@ -327,6 +329,75 @@ function NumberOfElements(hm,elem){
     }
     return results;
 }
+
+function containsElement(elem1,elem2){
+    
+    for(let i=0;i<elem1.childNodes.length;i++)
+    if(elem1.childNodes[i].childNodes[0])
+    if(elem1.childNodes[i].childNodes[0].parentNode.tagName==elem2)return true;
+    return false;
+
+}
+function docRespectEonE(d,el){
+    
+    //d este multimea elementelor cu numele book .
+    //functia trebuie sa returneze true daca toate elementele contin el
+    //ia valoarea nodului 
+        //console.log(d[i].childNodes[1].childNodes[0]);
+    
+    for(let i=0;i<d.length;i++)
+        if(!containsElement(d[i],el))return false;
+        if(d.length==0)return false;
+        return true;
+    }
+function elementHasElement(element,elementContinut){
+    let valueOfInput = element;
+    let results = [];
+    for (var i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key != "randid") {
+            let key = localStorage.key(i);
+            let value = localStorage.getItem(key);
+            let XML = new DOMParser().parseFromString(value, "text/xml");
+            let obj = parse(XML);
+            let d = XML.getElementsByTagName(valueOfInput);
+            if (docRespectEonE(d,elementContinut))
+                results.push(key);
+        }
+        
+    }
+    return results;
+
+}
+function nrElemHasVal(elems,val){
+    let i=0;
+    for(let j=0;j<elems.length;j++){
+        //console.log(elems[j].childNodes[0].textContent);
+        if(elems[j].childNodes[0].textContent==val){i++;
+        }
+    }
+    return i;
+}
+function nElemsHasValue(nrElem,elem,val){
+    let results = [];
+    for (var i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key != "randid") {
+            let key = localStorage.key(i);
+            let value = localStorage.getItem(key);
+            let XML = new DOMParser().parseFromString(value, "text/xml");
+            let obj = parse(XML);
+            let d = XML.getElementsByTagName(elem);
+            //console.log(nrElemHasVal(d,val));
+            if (nrElemHasVal(d,val)>=nrElem)
+                results.push(key);
+        }
+        
+    }
+    return results;
+
+}
+
 function HasDepth(i1) {
     let valueOfInput = i1;
     let results = [];

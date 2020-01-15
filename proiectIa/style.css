@@ -10,6 +10,7 @@ body{
   position: fixed;
   z-index: 1;
   top: 0;
+  overflow-x: hidden;
   padding-top: 20px;
 }
 
@@ -84,7 +85,7 @@ body{
     font-size: 18px;
     border: none;
     color:white;
-    margin: 30px 100px 30px;
+    margin:30px 100px 30px;
     width: 50%;
 }
 
@@ -106,11 +107,8 @@ body{
     display: inline-block;
     padding: 10px 0px;
     margin-right: 180px;
-
-  }
-
-  .dropdown select{
     left:-70px;
+
   }
   
   .dropdown-content {
@@ -151,11 +149,10 @@ body{
 
 .left #add_file{
     font-size: 30px;
-    padding: 10px 80px;
+    padding: 10px 110px;
     border: 2px solid rgba(68, 106, 175, 0.28);
     color: rgb(68, 106, 175);
     display: inline;
-    margin: 0px;
 }
 
 .left #add_file:hover{
@@ -173,20 +170,13 @@ body{
     border-bottom: 2px solid gray;
 }
 
-.left #visible_functions{
-  max-height: 200px;
-  overflow: scroll;
-  top:-20px;
-  /* border-bottom: 2px solid rgb(145, 145, 235); */
-}
-
 
 /****    RIGHT SIDE    ****/
 
 .right #files{
     font-size: 20px;
     padding: 20px;
-    border:2px solid rgba(68, 106, 175, 0.28);
+    border: 2px solid rgba(68, 106, 175, 0.28);
     min-width: 240px;
     min-height: 79px;
 }
@@ -213,33 +203,10 @@ body{
     font-size: 20px;
     padding: 20px;
     border: 2px solid rgba(68, 106, 175, 0.28);
-    min-width: 240px;
-    min-height: 79px;
 }
 
 .right #results div{
     border: 2px solid rgba(68, 106, 175, 0.28);
     padding: 20px;
 
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f8f8f8;
-  width: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(168, 168, 168);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(168, 168, 168);
 }
