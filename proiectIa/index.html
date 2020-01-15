@@ -12,42 +12,23 @@
     <div class="split left">
         <div class="centered">
             <h1>AI</h1>
-            <h3>Give me a word</h3>
+            <h3>Give me a task</h3>
+            <button id="add_function">Add</button>
+            <div class="dropdown">
+                <select id="addFunction" class="dropdown-content">
+                    <option value="default">Select function:</option>
+                    <option value="f1">contine un tag</option>
+                    <option value="f2">are cuvantul dupa element</option>
+                    <option value="f3"> are cuvantul inaintea elementului</option>
+                    <option value="f4">are adancimea >= decat un numar</option>
+                    <option value="f5">are un anumit nr de elemente</option>
+                </select>
+              </div>
             <div id = "functions">
-                <button id="add_function">Add</button>
-                <div class="dropdown">
-                    <select class="dropdown-content">
-                        <option value="0">Select function:</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                  </div>
-                <div id="function">
-                    <label class="container">Function
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                      </label>
-                    <input id="function1_value" type="text" placeholder="Write here...">
-                </div>
-                <div id="function">
-                    <label class="container">Function
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                      </label>
-                    <input id="function1_value" type="text" placeholder="Write here...">
-                </div>
-                <div id="function">
-                    <label class="container">Function
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                      </label>
-                    <input id="function1_value" type="text" placeholder="Write here...">
-                </div>
-                <button id="function1" onclick="search()">Search by tag name</button>
-                <label for="addImage" id="add_file" class="button-style">Add your xml file<i class="fa fa-picture-o" aria-hidden="true"></i></label>
             </div>
+                <button id="search" >Search </button>
+                <label for="addImage" id="add_file" class="button-style">Add your xml file<i class="fa fa-picture-o" aria-hidden="true"></i></label>
+            
         </div>
     </div>
 
